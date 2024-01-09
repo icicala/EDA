@@ -46,8 +46,8 @@ def label_analysis():
 # Univariate Analysis - continuous
 def continous_analysis():
     dataframe = load_data()
-    dataframe['purchase_value'].info()
-    dataframe['age'].info()
+    print(dataframe['purchase_value'].describe())
+    print(dataframe['age'].describe())
     numeric_columns = dataframe.select_dtypes(include=['float64', 'int64'])
     numeric_columns = numeric_columns[numeric_columns.columns.tolist()[1:3]]
     numeric_columns.hist(figsize=(10, 10), bins=100, xlabelsize=18, ylabelsize=18)
@@ -130,10 +130,10 @@ def load_data():
 
 
 if __name__ == '__main__':
-    missing_values()
-    check_data()
-    label_analysis()
+    # missing_values()
+    # check_data()
+    # label_analysis()
     continous_analysis()
-    category_analysis()
-    category_device_id_analysis()
-    ip_address_categorical_analysis()
+    # category_analysis()
+    # category_device_id_analysis()
+    # ip_address_categorical_analysis()
