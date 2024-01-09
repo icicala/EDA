@@ -1,0 +1,20 @@
+name: Exploratory Data Analysis Efraud dataset
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: iterative/setup-cml@v1
+      - name: Exploratory Data Analysis
+        run: |          
+          pip install -r requirements.txt
+          python main.py
+      - name: Write EDA report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Post reports as comments in GitHub PRs
+          cat results.txt >> report.md
+          cml comment create report.md
