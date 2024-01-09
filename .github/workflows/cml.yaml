@@ -11,10 +11,14 @@ jobs:
         run: |          
           pip install -r requirements.txt
           python main.py
-      - name: Write EDA report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Post reports as comments in GitHub PRs
-          cat results.txt >> report.md
-          cml comment create report.md
+          echo "### EDA Report ###" > report.md
+            cat results.txt >> report.md
+            check_data.png --md >> report.md
+            label_analysis.png --md >> report.md
+            continuous_analysis.png --md >> report.md
+            browser_category_analysis.png --md >> report.md
+            sex_category_analysis.png --md >> report.md
+            source_category_analysis.png --md >> report.md
+            category_device_id_analysis.png --md >> report.md
+            ip_address_category_analysis.png --md >> report.md
+            cml-send-comment report.md
