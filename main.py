@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -100,8 +102,8 @@ def country_from_IP(ip, ip_dataframe):
 
 # need to fix the errors
 def ip_address_categorical_analysis():
-
-    ip_dataframe = pd.read_csv('C:\\Users\\icicala\\Desktop\\Thesis\\Thesis\Data\\IpAddress_to_Country.csv', delimiter=';')
+    ip_path = os.path.join(os.getcwd(), "IpAddress_to_Country.csv")
+    ip_dataframe = pd.read_csv(ip_path, delimiter=';')
     ip_dataframe = ip_dataframe.sort_values('lower_bound_ip_address')
     dataframe = load_data()
     dataframe['country'] = dataframe['ip_address'].apply(lambda i: country_from_IP(i, ip_dataframe))
@@ -122,7 +124,8 @@ def corr_analisys():
 
 
 def load_data():
-    dataframe = pd.read_csv('C:\\Users\\icicala\\Desktop\\Thesis\\Thesis\Data\\Fraud_Data.csv')
+    data_path = os.path.join(os.getcwd(), "Fraud_Data.csv")
+    dataframe = pd.read_csv(data_path, delimiter=',')
     return dataframe
 
 
