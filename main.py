@@ -13,7 +13,7 @@ def save_text_to_file(text, filename):
 def save_plot_as_png(plot_function, plot_name):
     plt.figure(figsize=(10, 6))
     plot_function()
-    plt.savefig(f'{plot_name}.png')
+    plt.savefig(f'{plot_name}.png', dpi=120)
     plt.close()
 # Identifying missing values in tabular data
 def missing_values():

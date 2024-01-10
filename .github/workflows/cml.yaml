@@ -14,5 +14,4 @@ jobs:
           echo "### EDA Report ###" > report.md
             cat result.txt >> report.md
             check_data.png --md >> report.md
-
             cml-send-comment report.md
