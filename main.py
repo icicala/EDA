@@ -26,14 +26,15 @@ def missing_values():
 def check_data():
     dataframe = load_data()
     pd.set_option('display.max_columns', None)
+
+    # Collecting text output for result.txt
     text_output = '#################################\n'
     text_output += str(dataframe) + '\n'
     text_output += '#################################\n'
     text_output += str(dataframe.describe()) + '\n'
     text_output += '#################################\n'
     text_output += str(dataframe.head()) + '\n'
-    text_output += '#################################\n'
-    text_output += str(dataframe.info()) + '\n'
+
     save_text_to_file(text_output, 'result.txt')
     save_plot_as_png(plot_function=lambda: sns.pairplot(dataframe), plot_name='check_data')
 
