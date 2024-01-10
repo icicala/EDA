@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
     steps:
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
       - name: Exploratory Data Analysis
