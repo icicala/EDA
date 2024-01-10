@@ -6,7 +6,6 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
       - uses: iterative/setup-cml@v1
       - name: Exploratory Data Analysis
         run: |          
@@ -14,5 +13,5 @@ jobs:
           python main.py
           echo "### EDA Report ###" > report.md
           cat result.txt >> report.md
-          check_data.png --md >> report.md
+          echo "![](check_data.png)" >> report.md
           cml-send-comment report.md
