@@ -160,10 +160,10 @@ def load_data():
 
 
 if __name__ == '__main__':
-    missing_values()
+    # missing_values()
     check_data()
-    label_analysis()
-    continuous_analysis()
-    category_analysis()
-    category_device_id_analysis()
-    ip_address_categorical_analysis()
+    # label_analysis()
+    # continuous_analysis()
+    # category_analysis()
+    # category_device_id_analysis()
+    # ip_address_categorical_analysis()
