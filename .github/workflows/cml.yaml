@@ -6,7 +6,8 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v3
-      - uses: iterative/setup-tools@v1
+      - uses: actions/setup-python@v4
+      - uses: iterative/setup-cml@v1
       - name: Exploratory Data Analysis
         run: |          
           pip install -r requirements.txt
