@@ -12,7 +12,7 @@ jobs:
           pip install -r requirements.txt
           python main.py
           echo "### EDA Report ###" > report.md
-            cat results.txt >> report.md
+            cat result.txt >> report.md
             check_data.png --md >> report.md
             label_analysis.png --md >> report.md
             continuous_analysis.png --md >> report.md
